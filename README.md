@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ Product Explorer
+A simple Next.js App Router project to explore products with search, sort, and detailed view.
 
-## Getting Started
+Setup :
+Clone the repo:
+git clone <URL>
+cd product-explorer
 
-First, run the development server:
+Install dependencies:
+npm install
 
-```bash
+Run the dev server :
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit → http://localhost:3000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Testing :
+We use Jest + React Testing Library.
+Run tests:
+npm run test
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Tests included:
+ * Pure util → sortProducts & filterByQuery.
+ * Server-render → ProductCard shows product title/price.
+ * Client component → SearchBar interaction triggers callback.
 
-## Learn More
+ Server vs Client Components
 
-To learn more about Next.js, take a look at the following resources:
+Server Components:
+ProductList, ProductCard
+Static rendering, SEO friendly, faster load time.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Client Components:
+SearchBar, SortControl
+Needed for interactivity (user typing, clicking, etc.).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Choosing Server for static UI and Client only for interactive parts improves performance & reduces JS bundle size.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Performance Techniques :
+* next/image → Optimized product images with lazy loading.
+* next/font → Google Fonts without extra network requests.
+* Dynamic import → PriceBadge is loaded only when needed.
+* Server Components → Reduce JS shipped to client.
+* Tailwind CSS → Utility-first styling with minimal CSS overhead.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+Data Source :
+Products are fetched from Fake Store API
+It provides sample products with title, price, description, category, and image.
+
+
+Summary:
+* Built with Next.js (App Router).
+* Clear separation between Server (rendering) and Client (interactivity).
+* Optimized using Next.js performance features.
+* Tested with Jest .
+* Data powered by Fake Store API.
