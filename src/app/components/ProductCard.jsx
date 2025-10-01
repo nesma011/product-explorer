@@ -1,6 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ShoppingCart, Heart } from "lucide-react";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+// Dynamic Import for PriceBadge
+const PriceBadge = dynamic(() => import("./PriceBadge"), {
+  ssr: false, // Disable server-side rendering for this component
+    loading: () => <div className="h-6 w-12 bg-gray-200 animate-pulse rounded"></div>, // Fallback UI while loading
+});
+
 
 export default function ProductCard({ product }) {
   return (
@@ -45,11 +54,9 @@ export default function ProductCard({ product }) {
 
           {/* Price & Rating */}
           <div className="flex items-center justify-between mb-4">
-            <div>
-              <p className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                ${product.price.toFixed(2)}
-              </p>
-            </div>
+            <Suspense fallback={<p>Loading price...</p>}>
+        <PriceBadge price={product.price} />
+      </Suspense>
             
             {product.rating && (
               <div className="flex items-center gap-1 text-sm">
