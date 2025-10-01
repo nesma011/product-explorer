@@ -3,7 +3,7 @@ A simple Next.js App Router project to explore products with search, sort, and d
 
 Setup :
 Clone the repo:
-git clone <https://github.com/nesma011/product-explorer>
+git clone <URL>
 cd product-explorer
 
 Install dependencies:
