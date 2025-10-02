@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import SearchBar from "@/app/components/SearchBar";
+import SearchBar from "@/components/SearchBar";
 
 describe("SearchBar", () => {
   it("calls onSearch when user types", () => {

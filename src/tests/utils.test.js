@@ -1,4 +1,4 @@
-import { sortProducts, filterByQuery } from "@/app/lib/utils";
+import { sortProducts, filterByQuery } from "@/lib/utils";
 
 describe("utils functions", () => {
   const products = [

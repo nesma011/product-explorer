@@ -1,5 +1,5 @@
-import ProductDetails from "@/app/components/ProductDetails";
-import { getProductById } from "@/app/lib/api";
+import ProductDetails from "@/components/ProductDetails";
+import { getProductById } from "@/lib/api";
 
 // ISR: Revalidate this page every 60 seconds
 export const revalidate = 60;
